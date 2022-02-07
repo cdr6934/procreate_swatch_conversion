@@ -11,13 +11,13 @@ def to_hex(i):
         hx = "0" + hx
     return hx
 
-#Converts rgb colors to
+# Converts rgb colors to
 def to_color(r, g, b):
     cs = [to_hex(c) for c in [r, g, b]]
     return "#{cs[0]}{cs[1]}{cs[2]}".format(cs=cs)
 
 
-# Returns files from directory and adds to a list
+# Return files from directory and adds to a list
 def get_files():
     txtfiles = []
     for file in glob.glob("*.swatches"):
@@ -27,7 +27,6 @@ def get_files():
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-
     fns = get_files()
 
     for fn in fns:
@@ -35,7 +34,6 @@ if __name__ == '__main__':
         base = os.path.splitext(fn)[0]
 
         try:
-
             # Converts file extension to ZIP file
             # TODO: Take swatches file and convert to zip file
             filename = base + '.zip'
@@ -67,5 +65,3 @@ if __name__ == '__main__':
         os.rename(filename, "Completed/" + filename)
         os.remove('Swatches.json')
         print('File has been removed.')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
